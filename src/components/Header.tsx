@@ -33,22 +33,23 @@ export const Header = () => {
       <div>
         <div>
           <div className="flex justify-between mt-[26px] items-center  py-4 gap-4 flex-wrap   ">
-            <div className="md:hidden ">
+            <div className="sm:hidden ">
               <IconButton onClick={() => setMenuOpen(true)}>
                 <IoMenu size={28} />
               </IconButton>
             </div>
-            <div className=" mx-auto sm:mx-0">
+            <div className="flex gap-x-14 items-center ">
+            <div className=" mx-auto sm:mx-0  ">
               <img
                 src={logo}
                 alt="Logo"
-                className="w-full  sm:h-auto sm:ml-15"
+                className="w-full  sm:h-9 sm:ml-15 sm:w-38 "
               />
             </div>
             {/* Arama Kutusu ve Buton */}
             <div className="hidden sm:flex  ">
               <div className="flex items-center  md:w-auto md:flex-nowrap">
-                <div className="relative w-full md:w-72 ">
+                <div className="relative w-full md:w-40 ">
                   <IoIosSearch className="absolute left-3 top-3 text-gray-500  size={18}" />
                   <input
                     type="text"
@@ -69,7 +70,7 @@ export const Header = () => {
 
             {/* Hesap Butonu */}
 
-            <div className=" items-center space-x-4 hidden sm:flex">
+            <div className=" items-center space-x-4 hidden sm:flex ">
               <Button
                 sx={{ color: "#919191", border: "2px solid gray" }}
                 onClick={handleClick}
@@ -78,10 +79,10 @@ export const Header = () => {
                 aria-controls={open ? "basic-menu" : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
-                onClick={handleClick}
+               
               >
-                {" "}
-                <MdOutlineSupervisorAccount className="mr-2" /> Hesap
+               <div className="flex items-center px-5">
+                <MdOutlineSupervisorAccount className="mr-2" /> Hesap  </div>
               </Button>
 
               <Menu
@@ -100,15 +101,16 @@ export const Header = () => {
                   Giriş yap
                 </MenuItem>
               </Menu>
-            </div>
+           
             <div className="hidden sm:flex w-full">
               <button className="bg-[#919191] text-white py-[11px] px-[27px]  rounded-md flex mx-[30px] md:px-6  items-center flex-wrap mr-10">
                 <SlBasket className="mr-2 " />
                 Sepet
               </button>
             </div>
-
-            <div className="mr-4">
+            </div>
+            </div>
+            <div className="mr-4  sm:hidden">
               <button>
                 <Badge badgeContent={4} color="success">
                   <SlBasket className="w-full " />
@@ -116,9 +118,10 @@ export const Header = () => {
               </button>
             </div>
           </div>
+
                       {/* arama kısmı küçük ekran için */}
-          <div className="md:hidden relative w-full mt-2 px-5 ">
-          <CiSearch className= "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl ml-5 " />
+          <div className="sm:hidden relative w-full mt-2 px-5 ">
+          <CiSearch className= "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl  " />
             <input
               type="text"
               placeholder="Aradığınız ürünü yazınız..."
@@ -131,8 +134,8 @@ export const Header = () => {
 
           {/* siyah kısım ve buttonlar */}
           <div>
-            <div className="bg-black  w-full gap-20 py-3 hidden sm:flex  ">
-              <div className="flex text-white  gap-25 justify-center ">
+            <div className="bg-black  w-full gap-20 py-3 hidden sm:flex justify-center  ">
+              <div className="flex text-white  gap-25 justify-center  ">
                 <button> PROTEİN </button>
                 <button className=" text-center  flex "> SPOR GIDALARI</button>
                 <button>SAĞLIK </button>
@@ -148,10 +151,11 @@ export const Header = () => {
               open={menuOpen}
               onClose={() => setMenuOpen(false)}
             >
-              <div className="w-64 bg-black h-full flex flex-col text-white p-4 ">
+              <div className="w-64 bg-black h-full flex flex-col text-white p-4  ">
                 <button
-                  className="self-end text-gray-400 mb-4"
+                  className="self-end text-gray-400 mb-4 "
                   onClick={() => setMenuOpen(false)}
+
                 >
                   X
                 </button>
