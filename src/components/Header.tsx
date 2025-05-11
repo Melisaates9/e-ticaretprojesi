@@ -32,110 +32,109 @@ export const Header = () => {
     <>
       <div>
         <div>
-          <div className="flex justify-between mt-[26px] items-center  py-4 gap-4 flex-wrap   ">
-            <div className="sm:hidden ">
-              <IconButton onClick={() => setMenuOpen(true)}>
-                <IoMenu size={28} />
-              </IconButton>
-            </div>
-            <div className="flex gap-x-14 items-center ">
-            <div className=" mx-auto sm:mx-0  ">
-              <img
-                src={logo}
-                alt="Logo"
-                className="w-full  sm:h-9 sm:ml-15 sm:w-38 "
-              />
-            </div>
-            {/* Arama Kutusu ve Buton */}
-            <div className="hidden sm:flex  ">
-              <div className="flex items-center  md:w-auto md:flex-nowrap">
-                <div className="relative w-full md:w-40 ">
-                  <IoIosSearch className="absolute left-3 top-3 text-gray-500  size={18}" />
-                  <input
-                    type="text"
-                    placeholder="Aradığınız ürünü yazınız..."
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                    className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 transition-all "
-                  />
+          <div className="container mx-auto max-w-7xl px-4 py-4">
+            <div className="flex justify-between  items-center  py-4 gap-4 flex-wrap   ">
+              <div className="sm:hidden ">
+                <IconButton onClick={() => setMenuOpen(true)}>
+                  <IoMenu size={28} />
+                </IconButton>
+              </div>
+              <div className="flex gap-x-8 items-center  ">
+                <div className=" w-45 sm:w-32  ">
+                  <img src={logo} alt="Logo" className="w-full h-auto  " />
                 </div>
+                <div className="flex lg:ml-55    ">
+                  {/* Arama Kutusu ve Buton */}
+                  <div className="hidden sm:flex mr-[30px]  ">
+                    <div className="flex items-center  md:w-auto md:flex-nowrap">
+                      <div className="relative w-full  ">
+                        <IoIosSearch className="absolute left-3 top-3  text-gray-500  size={18} sm:hidden" />
+                        <input
+                          type="text"
+                          placeholder="Aradığınız ürünü yazınız..."
+                          value={value}
+                          onChange={(e) => setValue(e.target.value)}
+                          className="w-[158px] md:w-[355px] h-[40px]  bg-[#fff] sm:pl-2  pl-10 pr-3 py-2 border border-gray-300 rounded-[4px]shadow-sm focus:ring-2 focus:ring-gray-400 transition-all outline-0  "
+                        />
+                      </div>
 
-                <div>
-                  <button className="bg-[#919191] text-white py-[11px] px-[27px] rounded-md  shadow-sm focus:ring-2 focus:ring-gray-400 transition-all   ">
-                    Ara
-                  </button>
+                      <div>
+                        <button className="bg-[#919191ed] h-[40px]  w-[80px] flex justify-center text-white items-center rounded-md  shadow-sm focus:ring-2 focus:ring-gray-400 transition-all outline-none  ">
+                          Ara
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Hesap Butonu */}
+
+                  <div className="hidden sm:flex items-center space-x-4  ">
+                    <Button
+                      sx={{ color: "#919191", border: "2px solid gray " }}
+                      onClick={handleClick}
+                      className="h-[45px] w-[135px] rounded-[4px]"
+                      id="basic-button"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                    >
+                      <div className="flex items-center gap-0,50">
+                        <MdOutlineSupervisorAccount className="mr-2" /> Hesap{" "}
+                      </div>
+                    </Button>
+
+                    <Menu
+                      id="basic-menu"
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      MenuListProps={{
+                        "aria-labelledby": "basic-button",
+                      }}
+                    >
+                      <MenuItem className="font-bold" onClick={handleClose}>
+                        Üye ol
+                      </MenuItem>
+                      <MenuItem className="font-bold" onClick={handleClose}>
+                        Giriş yap
+                      </MenuItem>
+                    </Menu>
+
+                    <div className="hidden sm:flex w-full ">
+                      <button className="bg-[#919191ea] border-b-gray-600  text-white w-full py-[11px] px-[27px] justify-center  rounded-[4px] flex ml-[30px] md:px-6  items-center flex-wrap sm:px-1 ">
+                        <SlBasket className="mr-2 " />
+                        Sepet
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Hesap Butonu */}
-
-            <div className=" items-center space-x-4 hidden sm:flex ">
-              <Button
-                sx={{ color: "#919191", border: "2px solid gray" }}
-                onClick={handleClick}
-                className="flex-wrap"
-                id="basic-button"
-                aria-controls={open ? "basic-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-               
-              >
-               <div className="flex items-center px-5">
-                <MdOutlineSupervisorAccount className="mr-2" /> Hesap  </div>
-              </Button>
-
-              <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  "aria-labelledby": "basic-button",
-                }}
-              >
-                <MenuItem className="font-bold" onClick={handleClose}>
-                  Üye ol
-                </MenuItem>
-                <MenuItem className="font-bold" onClick={handleClose}>
-                  Giriş yap
-                </MenuItem>
-              </Menu>
-           
-            <div className="hidden sm:flex w-full">
-              <button className="bg-[#919191] text-white py-[11px] px-[27px]  rounded-md flex mx-[30px] md:px-6  items-center flex-wrap mr-10">
-                <SlBasket className="mr-2 " />
-                Sepet
-              </button>
-            </div>
-            </div>
-            </div>
-            <div className="mr-4  sm:hidden">
-              <button>
-                <Badge badgeContent={4} color="success">
-                  <SlBasket className="w-full " />
-                </Badge>
-              </button>
+              <div className="mr-4  sm:hidden">
+                <button>
+                  <Badge badgeContent={4} color="success">
+                    <SlBasket className="w-full " />
+                  </Badge>
+                </button>
+              </div> 
             </div>
           </div>
 
-                      {/* arama kısmı küçük ekran için */}
+          {/* arama kısmı küçük ekran için */}
           <div className="sm:hidden relative w-full mt-2 px-5 ">
-          <CiSearch className= "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl  " />
+            <CiSearch className="absolute left-8 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl  " />
             <input
               type="text"
               placeholder="Aradığınız ürünü yazınız..."
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              className="w-full pl-10 pr-3 py-2 border-gray-300 rounded-full shadow-sm focus:ring-2 focus:ring-blue-500    "
+              className="w-full pl-10 pr-3 py-2 border-gray-300 rounded-full shadow-sm focus:ring-2 focus:ring-blue-500 bg-[#F3F3F3]   "
             />
-            
           </div>
 
-          {/* siyah kısım ve buttonlar */}
+          {/* siyah kısım ve buttonlar*/}
           <div>
-            <div className="bg-black  w-full gap-20 py-3 hidden sm:flex justify-center  ">
-              <div className="flex text-white  gap-25 justify-center  ">
+            <div className="bg-black  w-full  py-3 hidden sm:flex justify-center  ">
+              <div className="flex flex-wrap  gap-6 text-white  px-4 max-w-screen-xl w-full justify-evenly ">
                 <button> PROTEİN </button>
                 <button className=" text-center  flex "> SPOR GIDALARI</button>
                 <button>SAĞLIK </button>
@@ -151,21 +150,25 @@ export const Header = () => {
               open={menuOpen}
               onClose={() => setMenuOpen(false)}
             >
-              <div className="w-64 bg-black h-full flex flex-col text-white p-4  ">
+              <div className="w-64 bg-white h-full flex flex-col p-2  gap-3 font-extrabold ">
                 <button
                   className="self-end text-gray-400 mb-4 "
                   onClick={() => setMenuOpen(false)}
-
                 >
                   X
                 </button>
-                <button className="py-2">PROTEİN</button>
-                <button className="py-2">SPOR GIDALARI</button>
-                <button className="py-2">SAĞLIK</button>
-                <button className="py-2">GIDA</button>
-                <button className="py-2">VİTAMİN</button>
-                <button className="py-2">TÜM ÜRÜNLER</button>
+                <button className="py-2 text-start absolute top-3  ">PROTEİN</button>
+                <button className="py-2 text-start ">SAĞLIK</button>
+                <button className="py-2 text-start">GIDA</button>
+                <button className="py-2 text-start">VİTAMİN</button>
+                <button className="py-2 text-start">TÜM ÜRÜNLER</button>
+                
               </div>
+              <div className="gap-1.5 bg-[#E5E5E5] flex flex-col flex-21/12 px-2 font-medium text-sm ">
+                  <button className="py-2 text-start">HESABIM</button>
+                <button className="py-2 text-start">MÜŞTERİ YORUMLARI</button>
+                <button className="py-2 text-start">İLETİŞİM</button>
+                </div>
             </Drawer>
           </div>
           {/* kargo kısımı */}
