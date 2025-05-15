@@ -13,6 +13,7 @@ import { IoMenu } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 
 import { Badge, Drawer, IconButton } from "@mui/material";
+import { FaChevronRight } from "react-icons/fa";
 export const Header = () => {
   const [value, setValue] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -115,7 +116,7 @@ export const Header = () => {
                     <SlBasket className="w-full " />
                   </Badge>
                 </button>
-              </div> 
+              </div>
             </div>
           </div>
 
@@ -151,24 +152,30 @@ export const Header = () => {
               onClose={() => setMenuOpen(false)}
             >
               <div className="w-64 bg-white h-full flex flex-col p-2  gap-3 font-extrabold ">
-                <button
-                  className="self-end text-gray-400 mb-4 "
-                  onClick={() => setMenuOpen(false)}
-                >
-                  X
+                <button className="py-2 text-start flex justify-between items-center">
+                  PROTEİN <FaChevronRight  />
                 </button>
-                <button className="py-2 text-start absolute top-3  ">PROTEİN</button>
-                <button className="py-2 text-start ">SAĞLIK</button>
-                <button className="py-2 text-start">GIDA</button>
-                <button className="py-2 text-start">VİTAMİN</button>
-                <button className="py-2 text-start">TÜM ÜRÜNLER</button>
-                
+                <button className="py-2 text-start  flex justify-between items-center ">
+                  SAĞLIK <FaChevronRight />
+                </button>
+                <button className="py-2 text-start  flex justify-between items-center">
+                  GIDA
+                  <FaChevronRight />
+                </button>
+                <button className="py-2 text-start  flex justify-between items-center">
+                  VİTAMİN
+                  <FaChevronRight />
+                </button>
+                <button className="py-2 text-start  flex justify-between items-center">
+                  TÜM ÜRÜNLER
+                  <FaChevronRight />
+                </button>
               </div>
               <div className="gap-1.5 bg-[#E5E5E5] flex flex-col flex-21/12 px-2 font-medium text-sm ">
-                  <button className="py-2 text-start">HESABIM</button>
+                <button className="py-2 text-start">HESABIM</button>
                 <button className="py-2 text-start">MÜŞTERİ YORUMLARI</button>
                 <button className="py-2 text-start">İLETİŞİM</button>
-                </div>
+              </div>
             </Drawer>
           </div>
           {/* kargo kısımı */}
