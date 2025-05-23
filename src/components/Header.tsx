@@ -180,17 +180,17 @@ export const Header = () => {
           </div>
           {/* kargo kısımı */}
           <div className="">
-            <div className="  justify-evenly text-xs mt-3.5 md:text-xs gap-2.5 hidden sm:flex ">
-              <p className="flex ">
+            <div className="  justify-evenly text-xs mt-3.5 md:text-xs gap-2.5 hidden sm:flex py-2 ">
+              <p className="flex items-center ">
                 {" "}
                 <FaParachuteBox className="size-7 mx-3" />
                 AYNI GÜN KARGO - <span>16:00’DAN ÖNCEKİ SİPARİŞLERDE </span>
               </p>
-              <p className="flex">
+              <p className="flex items-center">
                 <GrEmoji className="size-7 mr-2" />
                 ÜCRETSİZ KARGO - <span>100 TL ÜZERİ SİPARİŞLERDE </span>
               </p>
-              <p className="flex">
+              <p className="flex items-center">
                 <AiOutlineSafetyCertificate className="size-7 mr-2 " />
                 GÜVENLİ ALIŞVERİŞ -<span> 1.000.000+ MUTLU MÜŞTERİ</span>
               </p>
